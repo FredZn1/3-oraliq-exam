@@ -2,8 +2,9 @@ from django.shortcuts import render, get_object_or_404, redirect
 from tags.models import Tag
 from catalogs.models import Catalog
 from django.db.models import Count, Q
-from .models import Post, Comment
-from .forms import CommentForm
+from .models import Post
+from comments.forms import CommentForm
+
 
 def post_list(request):
     catalogs = request.GET.getlist('catalog')

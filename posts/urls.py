@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 
-app_name = 'posts'  # Namespace for the posts app
+app_name = 'posts'
 
 urlpatterns = [
     path('', views.post_list, name='list'),

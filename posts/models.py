@@ -7,7 +7,7 @@ from django.utils.text import slugify
 from django.urls import reverse
 
 
-class Post(models.Model):
+class Post(BaseModel):
     name = models.CharField(max_length=100)
     image = models.ImageField(upload_to='posts/')
     catalog = models.ForeignKey(Catalog, on_delete=models.CASCADE, related_name='products')
@@ -31,15 +31,6 @@ class Post(models.Model):
             self.slug
         ])
 
-
-    def __str__(self):
-        return f"{self.name}"
-
-class Comment(BaseModel):
-    name = models.CharField(max_length=200)
-    email = models.EmailField(unique=False)
-    comment = models.TextField()
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments', null=True)
 
     def __str__(self):
         return f"{self.name}"
